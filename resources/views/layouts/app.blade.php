@@ -13,6 +13,7 @@
     <link
         href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
         rel="stylesheet">
+    <link href="{{asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.css')}}" rel="stylesheet">
     <title>Manajemen Tugas | {{$title}}</title>
 
     <!-- Custom fonts for this template-->
@@ -45,7 +46,7 @@
 
             <!-- Nav Item - Dashboard -->
             <li class="nav-item {{$menuDashboard ?? ''}}">
-                <a class="nav-link" href="index.html">
+                <a class="nav-link" href="{{route('dashboard')}}">
                     <i class="fas fa-fw fa-tachometer-alt"></i>
                     <span>Dashboard</span></a>
             </li>
@@ -58,15 +59,15 @@
                 Menu Admin
             </div>
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <li class="nav-item {{$menuAdminUser ?? ''}}" >
+                <a class="nav-link" href="{{route('user')}}">
                     <i class="fas fa-user"></i>
                     <span>Data User</span></a>
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item {{$menuAdminTugas ?? ''}}">
+                <a class="nav-link" href="{{route('tugas')}}">
                     <i class="fas fa-tasks"></i>
                     <span>data tugas</span></a>
             </li>
@@ -77,8 +78,8 @@
             </div>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item ">
+                <a class="nav-link" href="#">
                     <i class="fas fa-tasks"></i>
                     <span>data tugas</span></a>
             </li>
@@ -205,6 +206,12 @@
 
     <!-- Custom scripts for all pages-->
     <script src="{{asset('sbadmin2/js/sb-admin-2.min.js')}}"></script>
+
+    <script src="{{asset('sbadmin2/vendor/datatables/jquery.dataTables.min.js')}}"></script>
+    <script src="{{asset('sbadmin2/vendor/datatables/dataTables.bootstrap4.min.js')}}"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="{{asset('sbadmin2/js/demo/datatables-demo.js')}}"></script>
 
 </body>
 
