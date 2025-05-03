@@ -37,5 +37,13 @@ class DatabaseSeeder extends Seeder
             'password' => Hash::make('123123123'),
             'is_tugas' => false,
         ]);
+
+        User::create([
+            'nama' => 'Tini',
+            'email' => 'tini@gmail.com',
+            'jabatan' => 'karyawan',
+            'password' => Hash::make('123123123'),
+            'is_tugas' => false,
+        ]);
     }
 }
