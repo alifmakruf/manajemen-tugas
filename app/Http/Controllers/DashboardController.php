@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class DashboardController extends Controller
@@ -10,7 +10,12 @@ class DashboardController extends Controller
     public function index(){
         $data = array(
             "title" => "dashboard",
-            "menuDashboard" => "active"
+            "menuDashboard" => "active",
+            "jumlahUser" => User::count(),
+            "jumlahAdmin" => User::where('jabatan', 'Admin')->count(),
+            "jumlahKaryawan" => User::where('jabatan', 'Karyawan')->count(),
+            "jumlahDitugaskan" => User::where('jabatan', 'Karyawan')->where('is_tugas', true)->count(),
+            "jumlahBelumDitugaskan" => User::where('jabatan', 'Karyawan')->where('is_tugas', false)->count(),
         );
         return view('dashboard', $data);
     }
